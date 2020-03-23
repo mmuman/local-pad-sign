@@ -5,6 +5,12 @@ function update(step) {
     var t = document.getElementById("settings_title").value;
     var st = document.getElementById("settings_subtitle").value;
     var u = document.getElementById("settings_url").value;
+
+    document.getElementById("sign_title").textContent = t;
+    document.getElementById("sign_subtitle").textContent = st;
+    // TODO: shorten text URL? frama.link (LSTU) sends the full page HTML as reply of the POST :-(
+    document.getElementById("sign_url").textContent = u.replace(/^http.:\/\//,"");
+
     if (u.length && u != padUrl) {
         var qrcode = new QRCode({
             content: u,
@@ -17,10 +23,6 @@ function update(step) {
         document.getElementById("pad_iframe").src = u;
         padUrl = u;
     }
-    document.getElementById("sign_title").textContent = t;
-    document.getElementById("sign_subtitle").textContent = st;
-    // TODO: shorten text URL? frama.link (LSTU) sends the full page HTML as reply of the POST :-(
-    document.getElementById("sign_url").textContent = u.replace(/^http.:\/\//,"");
 
 
     if (step) {
