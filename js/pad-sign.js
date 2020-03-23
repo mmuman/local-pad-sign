@@ -1,14 +1,20 @@
 
 
 function update() {
+    var t = document.getElementById("settings_title").value;
+    var st = document.getElementById("settings_subtitle").value;
+    var u = document.getElementById("settings_url").value;
     var qrcode = new QRCode({
-        content: "Hello World!",
+        content: u,
         container: "svg-viewbox", //Responsive use
         join: true //Crisp rendering and 4-5x reduced file size
     });
     var svg = qrcode.svg();
 
     document.getElementById("qr").innerHTML = svg;
+    document.getElementById("sign_title").textContent = t;
+    document.getElementById("sign_subtitle").textContent = st;
+    document.getElementById("sign_url").textContent = u;
 
 }
 

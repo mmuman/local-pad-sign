@@ -12,15 +12,15 @@
 <div class="noprint">
 <h1 lang="en">Local Online Billboard Generator</h1>
 <h1 lang="fr">Générateur de panneau d'affichage local</h1>
-<p lang="en">Changes take effect on pad reload.</p>
-<p lang="fr">Les changements prennent effet au rechargement du pad.</p>
+<p lang="en">Generate a printable sign with QR-code to a collaborative editor to share infos with your neighbouts.</p>
+<p lang="fr">Créez une affiche avec QR-Code vers un éditeur collaboratif pour partager des infos avec vos voisins.</p>
 <form id="settings">
 <div>
 <label for="settings_title">
 <span lang="en">Title:&nbsp;</span>
 <span lang="fr">Titre&nbsp;:&nbsp;</span>
 </label>
-<input id="settings_title" type="text" value="" onchange="update();">
+<input id="settings_title" type="text" value="Informations collaboratives pour ma ville" onchange="update();">
 </div>
 <p lang="en">WRITEME</p>
 <p lang="fr">WRITEME</p>
@@ -31,18 +31,18 @@
 <span lang="en">Subtitle:&nbsp;</span>
 <span lang="fr">Sous-titre&nbsp;:&nbsp;</span>
 </label>
-<input id="settings_subtitle" type="text" value="" onchange="update();">
+<input id="settings_subtitle" type="text" value="Des compétences à proposer, de l'aide à demander ?" onchange="update();">
 </div>
 <p lang="en">WRITEME</p>
 <p lang="fr">WRITEME</p>
 <br />
 
 <div>
-<label for="settings_padurl">
+<label for="settings_url">
 <span lang="en">Pad URL:&nbsp;</span>
 <span lang="fr">URL du pad&nbsp;:&nbsp;</span>
 </label>
-<input id="settings_padurl" type="text" value="https://framapad.org/" onchange="update();">
+<input id="settings_url" type="text" value="https://framapad.org/" onchange="update();">
 </div>
 <p lang="en">WRITEME</p>
 <p lang="fr">WRITEME</p>
