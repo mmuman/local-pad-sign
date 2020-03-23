@@ -4,6 +4,17 @@
     border-radius: 50%;
     border: 10px solid #a0a0ff;
 }
+.todo {
+    background: #e0b0b0;
+    border: 2px solid orange;
+}
+.done {
+    background: #b0e0b0;
+    border: none;
+}
+input[type="text"] {
+    width: 80%;
+}
 #pad {
 	width: 80%;
     margin: auto;

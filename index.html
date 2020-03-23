@@ -14,49 +14,69 @@
 <a class="github-fork-ribbon" href="https://github.com/mmuman/local-pad-sign" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
 <h1 lang="en">Local Online Billboard Generator</h1>
 <h1 lang="fr">Générateur de panneau d'affichage local</h1>
-<p lang="en">Generate a printable sign with QR-code to a collaborative editor to share infos with your neighbouts.</p>
+<p lang="en">Generate a printable sign with QR-code to a collaborative editor to share infos with your neighbours.</p>
 <p lang="fr">Créez une affiche avec QR-Code vers un éditeur collaboratif pour partager des infos avec vos voisins.</p>
+
 <form id="settings">
+
+<div id="step-1">
+<h2 lang="en">1: Write a Title</h2>
+<h2 lang="fr">1&nbsp;: Écrivez le titre</h2>
 <div>
 <label for="settings_title">
 <span lang="en">Title:&nbsp;</span>
 <span lang="fr">Titre&nbsp;:&nbsp;</span>
 </label>
-<input id="settings_title" type="text" value="Informations collaboratives pour ma ville" onchange="update();">
+<input id="settings_title" type="text" value="Informations collaboratives pour ma ville" onchange="update(1);">
 </div>
 <p lang="en">WRITEME</p>
 <p lang="fr">WRITEME</p>
 <br />
+</div>
 
+<div id="step-2">
+<h2 lang="en">2: Add some details</h2>
+<h2 lang="fr">2&nbsp;: Ajoutez quelques détails</h2>
 <div>
 <label for="settings_subtitle">
 <span lang="en">Subtitle:&nbsp;</span>
 <span lang="fr">Sous-titre&nbsp;:&nbsp;</span>
 </label>
-<input id="settings_subtitle" type="text" value="Des compétences à proposer, de l'aide à demander ?" onchange="update();">
+<input id="settings_subtitle" type="text" value="Des compétences à proposer, de l'aide à demander ?" onchange="update(2);">
 </div>
 <p lang="en">WRITEME</p>
 <p lang="fr">WRITEME</p>
 <br />
+</div>
 
+<div id="step-3">
+<h2 lang="en">Create a pad</h2>
+<h2 lang="fr">Créez un pad</h2>
 <div>
 <label for="settings_url">
 <span lang="en">Pad URL:&nbsp;</span>
 <span lang="fr">URL du pad&nbsp;:&nbsp;</span>
 </label>
-<input id="settings_url" type="text" value="https://framapad.org/" onchange="update();">
+<input id="settings_url" type="text" value="https://framapad.org/" onchange="update(3);">
 </div>
 <p lang="en">WRITEME</p>
 <p lang="fr">WRITEME</p>
 <br />
-
-<div id="pad">
-<iframe src="https://framapad.org/" onload="updatePad(this.contentWindow.location)"></iframe>
 </div>
 
+<div id="pad">
+<iframe id="pad_iframe" src="https://framapad.org/" onload="updatePad(this.contentWindow.location)"></iframe>
+</div>
+
+<div id="step-4">
+<h2 lang="en">Print the sign and put it outside</h2>
+<h2 lang="fr">Imprimez l'affiche et placardez-là</h2>
 <center>
-<input type="button" id="btn_do_print" value="Imprimer" title="Print current content" onclick="javascript:window.print();return false;" />
+<input type="button" id="btn_do_print" value="Imprimer" title="Print current content" onclick="javascript:window.print();update(4);return false;" />
 </center>
+<p lang="en">Printing this page should get you the poster below so you can put it in the streets to inform your neighbours. (But don't go out just for this!)</p>
+<p lang="fr">En imprimant cette page vous devriez obtenir l'affiche ci-dessous, pour la placarder dans les rues et informer vos voisins à l'occasion d'une sortie. (Mais ne sortez-pas juste pour ça&nbsp;!)</p>
+</div>
 <br />
 
 </form>

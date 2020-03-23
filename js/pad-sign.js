@@ -1,6 +1,6 @@
 
 
-function update() {
+function update(step) {
     var t = document.getElementById("settings_title").value;
     var st = document.getElementById("settings_subtitle").value;
     var u = document.getElementById("settings_url").value;
@@ -15,6 +15,18 @@ function update() {
     document.getElementById("sign_title").textContent = t;
     document.getElementById("sign_subtitle").textContent = st;
     document.getElementById("sign_url").textContent = u;
+    document.getElementById("pad_iframe").src = u;
+
+
+    if (step) {
+        document.getElementById("step-"+step).className = "done";
+        step++;
+        if (step < 5) {
+            document.getElementById("step-"+step).className = "todo";
+            document.getElementById("step-"+step).scrollIntoView(
+                {behavior: "smooth", block: "center", inline: "nearest"});
+        }
+    }
 
 }
 
@@ -97,4 +109,7 @@ function localizeUI() {
 
 document.addEventListener('DOMContentLoaded', (event) => {
     localizeUI();
+    document.getElementById("settings_title").select();
+    document.getElementById("settings_title").focus();
+    document.getElementById("step-1").className = "todo";
 })
