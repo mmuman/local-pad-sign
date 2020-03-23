@@ -1,21 +1,25 @@
 
+var padUrl = "";
 
 function update(step) {
     var t = document.getElementById("settings_title").value;
     var st = document.getElementById("settings_subtitle").value;
     var u = document.getElementById("settings_url").value;
-    var qrcode = new QRCode({
-        content: u,
-        container: "svg-viewbox", //Responsive use
-        join: true //Crisp rendering and 4-5x reduced file size
-    });
-    var svg = qrcode.svg();
+    if (u.length && u != padUrl) {
+        var qrcode = new QRCode({
+            content: u,
+            container: "svg-viewbox", //Responsive use
+            join: true //Crisp rendering and 4-5x reduced file size
+        });
+        var svg = qrcode.svg();
 
-    document.getElementById("qr").innerHTML = svg;
+        document.getElementById("qr").innerHTML = svg;
+        document.getElementById("pad_iframe").src = u;
+        padUrl = u;
+    }
     document.getElementById("sign_title").textContent = t;
     document.getElementById("sign_subtitle").textContent = st;
     document.getElementById("sign_url").textContent = u;
-    document.getElementById("pad_iframe").src = u;
 
 
     if (step) {
@@ -32,10 +36,16 @@ function update(step) {
 
 
 function genPad() {
+    //XXX:DEBUG: to avoid creating a new pad each time when testing
+    //name="i9e3ux4m7j";
     /* from https://framagit.org/framasoft/framapad/-/blob/master/app/components/pages/Home.vue */
+
     const name = [...Array(10)].map(() => Math.random().toString(36)[3]).join('')
         .replace(/(.|$)/g, c => c[!Math.round(Math.random()) ? 'toString' : 'toLowerCase']());
+
     console.log(name);
+    // TODO: use other instances
+    document.getElementById("settings_url").value = "https://mensuel.framapad.org/p/" + name;
 }
 
 

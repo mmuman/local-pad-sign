@@ -50,27 +50,31 @@
 </div>
 
 <div id="step-3">
-<h2 lang="en">Create a pad</h2>
-<h2 lang="fr">Créez un pad</h2>
+<h2 lang="en">3: Create a pad</h2>
+<h2 lang="fr">3&nbsp;: Créez un pad</h2>
+<center>
+<input type="button" id="btn_do_gen" value="Créer" title="Create a pad" onclick="javascript:genPad();update(3);return false;" />
+</center>
+<br />
 <div>
 <label for="settings_url">
 <span lang="en">Pad URL:&nbsp;</span>
 <span lang="fr">URL du pad&nbsp;:&nbsp;</span>
 </label>
-<input id="settings_url" type="text" value="https://framapad.org/" onchange="update(3);">
+<input id="settings_url" type="text" value="" onchange="update(3);">
 </div>
 <p lang="en">WRITEME</p>
 <p lang="fr">WRITEME</p>
 <br />
-</div>
-
 <div id="pad">
-<iframe id="pad_iframe" src="https://framapad.org/" onload="updatePad(this.contentWindow.location)"></iframe>
+<iframe id="pad_iframe" src="" onload="updatePad(this.contentWindow.location)" tabindex="-1"></iframe>
+</div>
+<br />
 </div>
 
 <div id="step-4">
-<h2 lang="en">Print the sign and put it outside</h2>
-<h2 lang="fr">Imprimez l'affiche et placardez-là</h2>
+<h2 lang="en">4: Print the sign and put it outside</h2>
+<h2 lang="fr">4&nbsp;: Imprimez l'affiche et placardez-là</h2>
 <center>
 <input type="button" id="btn_do_print" value="Imprimer" title="Print current content" onclick="javascript:window.print();update(4);return false;" />
 </center>
