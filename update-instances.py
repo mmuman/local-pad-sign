@@ -11,5 +11,7 @@ with request.urlopen("https://framagit.org/framasoft/framapad/-/raw/master/app/d
     #with open("project.yml", 'r') as stream:
     data_loaded = yaml.safe_load(stream)
     data = data_loaded['instances']
-    with open('js/instances.json', 'w') as outfile:
+    with open('js/instances.js', 'w') as outfile:
+        outfile.write("const instances = ")
         json.dump(data, outfile)
+        outfile.write(";")
