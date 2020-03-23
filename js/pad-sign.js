@@ -19,7 +19,8 @@ function update(step) {
     }
     document.getElementById("sign_title").textContent = t;
     document.getElementById("sign_subtitle").textContent = st;
-    document.getElementById("sign_url").textContent = u;
+    // TODO: shorten text URL? frama.link (LSTU) sends the full page HTML as reply of the POST :-(
+    document.getElementById("sign_url").textContent = u.replace(/^http.:\/\//,"");
 
 
     if (step) {
@@ -36,16 +37,20 @@ function update(step) {
 
 
 function genPad() {
-    //XXX:DEBUG: to avoid creating a new pad each time when testing
-    //name="i9e3ux4m7j";
     /* from https://framagit.org/framasoft/framapad/-/blob/master/app/components/pages/Home.vue */
-
     const name = [...Array(10)].map(() => Math.random().toString(36)[3]).join('')
         .replace(/(.|$)/g, c => c[!Math.round(Math.random()) ? 'toString' : 'toLowerCase']());
 
-    console.log(name);
-    // TODO: use other instances
-    document.getElementById("settings_url").value = "https://mensuel.framapad.org/p/" + name;
+    /* pick a random instance */
+    var instance = instances[Object.keys(instances)[Math.floor(Math.random() * Object.keys(instances).length)]];
+    // TODO: filter out non-chatons
+    console.log("Using etherpad instance " + instance.title);
+
+    var url = instance.endpoint + name;
+    console.log(url);
+    // XXX: DEBUG
+    //url = "https://mensuel.framapad.org/p/i9e3ux4m7j";
+    document.getElementById("settings_url").value = url;
 }
 
 
