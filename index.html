@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- Local Pad Sign, Copyright 2020 François Revol -->
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Local Pad Sign Generator</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="js/qrcode.min.js" type="application/javascript"></script>
+    <script src="js/pad-sign.js" type="application/javascript"></script>
+</head>
+<body onload="update();">
+<div class="noprint">
+<h1 lang="en">Local Online Billboard Generator</h1>
+<h1 lang="fr">Générateur de panneau d'affichage local</h1>
+<p lang="en">Changes take effect on pad reload.</p>
+<p lang="fr">Les changements prennent effet au rechargement du pad.</p>
+<form id="settings">
+<div>
+<label for="settings_title">
+<span lang="en">Title:&nbsp;</span>
+<span lang="fr">Titre&nbsp;:&nbsp;</span>
+</label>
+<input id="settings_title" type="text" value="" onchange="update();">
+</div>
+<p lang="en">WRITEME</p>
+<p lang="fr">WRITEME</p>
+<br />
+
+<div>
+<label for="settings_subtitle">
+<span lang="en">Subtitle:&nbsp;</span>
+<span lang="fr">Sous-titre&nbsp;:&nbsp;</span>
+</label>
+<input id="settings_subtitle" type="text" value="" onchange="update();">
+</div>
+<p lang="en">WRITEME</p>
+<p lang="fr">WRITEME</p>
+<br />
+
+<div>
+<label for="settings_padurl">
+<span lang="en">Pad URL:&nbsp;</span>
+<span lang="fr">URL du pad&nbsp;:&nbsp;</span>
+</label>
+<input id="settings_padurl" type="text" value="https://framapad.org/" onchange="update();">
+</div>
+<p lang="en">WRITEME</p>
+<p lang="fr">WRITEME</p>
+<br />
+
+<div id="pad">
+<iframe src="https://framapad.org/" onload="updatePad(this.contentWindow.location)"></iframe>
+</div>
+
+<center>
+<input type="button" id="btn_do_print" value="Imprimer" title="Print current content" onclick="javascript:window.print();return false;" />
+</center>
+<br />
+
+</form>
+</div>
+<page size="A4" layout="landscape">
+<div id="sign">
+<h1 id="sign_title">Title: Citizen Collaborative Bulletin</h1>
+<h3 id="sign_subtitle">SubTitle: Asking for help, Proposing help?</h3>
+<h2 id="sign_url"><code>foo.bar/plop<code></h2>
+<div id="qr"></div>
+</div>
+</page>
+</body>
