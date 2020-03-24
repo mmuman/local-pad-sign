@@ -1,16 +1,15 @@
 .item {
-    background: #8080ff;
-    padding: 5px;
-    border-radius: 50%;
-    border: 10px solid #a0a0ff;
+    margin: 1em;
 }
 .todo {
+    margin: 1em;
     padding: 5px;
     background: #e0d0c0;
     border: 2px solid orange;
     border-radius: 10px;
 }
 .done {
+    margin: 1em;
     background: #b0e0b0;
     border: none;
 }

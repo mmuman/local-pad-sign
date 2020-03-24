@@ -13,6 +13,7 @@
 <body onload="update();">
 <div class="noprint">
 <a class="github-fork-ribbon" href="https://github.com/mmuman/local-pad-sign" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+<div class="item">
 <h1 lang="en">Local Online Billboard Generator</h1>
 <h1 lang="fr">Générateur de panneau d'affichage local</h1>
 <p lang="en">Generate a printable sign with QR-code to a collaborative editor to share infos with your neighbours.</p>
@@ -25,10 +26,11 @@
 <a href="https://github.com/papnkukn/qrcode-svg/">QRCode-SVG</a>,
 <a href="https://github.com/simonwhitaker/github-fork-ribbon-css">github-fork-ribbon-css</a>.
 </p>
+</div>
 
 <form id="settings">
 
-<div id="step-1">
+<div id="step-1" class="item">
 <h2 lang="en">1: Write a Title</h2>
 <h2 lang="fr">1&nbsp;: Écrivez le titre</h2>
 <div>
@@ -43,7 +45,7 @@
 <br />
 </div>
 
-<div id="step-2">
+<div id="step-2" class="item">
 <h2 lang="en">2: Add some details</h2>
 <h2 lang="fr">2&nbsp;: Ajoutez quelques détails</h2>
 <div>
@@ -58,7 +60,7 @@
 <br />
 </div>
 
-<div id="step-3">
+<div id="step-3" class="item">
 <h2 lang="en">3: Create a pad or mention the address of a Website</h2>
 <h2 lang="fr">3&nbsp;: Créez un pad ou indiquez l'adresse d'un site Web</h2>
 <center>
@@ -72,8 +74,8 @@
 </label>
 <input id="settings_url" type="text" value="" onchange="update(3);">
 </div>
-<p lang="en">You can either generate an etherpad (a collaborative document) with the <i>Create</i> button, or use an existing website by providing the URL in the textfield.</p>
-<p lang="fr">Vous pouvez générer un etherpad (un document éditable à plusieurs) par le bouton <i>Créer</i>, ou indiquer l'adresse d'un document existant sur le Web.</p>
+<p lang="en">You can either generate an etherpad (a collaborative document) with the <i>Create</i> button, or use an existing website (like an existing pad if you must recreate the poster) by providing the URL in the textfield.</p>
+<p lang="fr">Vous pouvez générer un etherpad (un document éditable à plusieurs) par le bouton <i>Créer</i>, ou indiquer l'adresse d'un document existant sur le Web (comme un pad pré-existant si vous devez recréer l'affiche).</p>
 <p>
 <span lang="en">This pad will be provided by: </span>
 <span lang="fr">Ce pad vous sera proposé par&nbsp;: </span>
@@ -91,7 +93,7 @@
 <br />
 </div>
 
-<div id="step-4">
+<div id="step-4" class="item">
 <h2 lang="en">4: Print the sign and put it outside</h2>
 <h2 lang="fr">4&nbsp;: Imprimez l'affiche et placardez-là</h2>
 <center>
