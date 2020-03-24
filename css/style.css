@@ -66,6 +66,18 @@ page[size="A4"] {
     height: 26cm;
 }
 
+@media only screen and (min-width: 1280px) {
+    div.noprint {
+        max-width: 40%;
+    }
+    page {
+        position: fixed;
+        right: 1em;
+        top: 1em;
+        float: rigth;
+    }
+}
+
 @media print {
     body {
         padding: 0;
