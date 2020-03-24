@@ -74,7 +74,7 @@ function genPad() {
 
 
 function updatePad(d) {
-    console.log(d);
+    //console.log(d);
 }
 
 
@@ -149,7 +149,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         hash = hash.split("&");
         hash = hash.map(h => h.split("="))
         fragments = {};
-        console.log(hash);
         hash.forEach(h => fragments[h[0]] = decodeURIComponent(h[1]));
         document.getElementById("settings_title").value = fragments['title'] || "";
         document.getElementById("settings_subtitle").value = fragments['subtitle'] || "";
