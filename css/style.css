@@ -22,6 +22,17 @@
 .vert {
     color: #8e9c48;
 }
+.legal-mentions {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    text-orientation: sideways;
+    text-align:right;
+    text-orientation: sideways;
+    font-size: x-small;
+    position: absolute;
+    right: 0em;
+    bottom: 1em;
+}
 input[type="text"] {
     width: 80%;
 }
@@ -78,6 +89,11 @@ page[size="A4"] {
         right: 1em;
         top: 1em;
         float: rigth;
+    }
+}
+@media not print {
+    .legal-mentions {
+        display: none;
     }
 }
 
