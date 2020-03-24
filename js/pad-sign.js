@@ -11,6 +11,11 @@ function update(step) {
     // TODO: shorten text URL? frama.link (LSTU) sends the full page HTML as reply of the POST :-(
     document.getElementById("sign_url").textContent = u.replace(/^http.:\/\//,"");
     document.getElementById("open_pad").href = u;
+    var fragments = [
+        "title=" + encodeURIComponent(t),
+        "subtitle=" + encodeURIComponent(st)
+    ];
+    var hash;
 
     if (u.length && u != padUrl) {
         var qrcode = new QRCode({
@@ -22,9 +27,12 @@ function update(step) {
 
         document.getElementById("qr").innerHTML = svg;
         document.getElementById("pad_iframe").src = u;
+        fragments.push("pad=" + encodeURIComponent(u));
         padUrl = u;
     }
 
+    // XXX: this resets the zoom in Chromium
+    //history.pushState(null,null,'#' + fragments.join("&"));
 
     if (step) {
         document.getElementById("step-"+step).className = "done";
