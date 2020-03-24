@@ -30,8 +30,8 @@
 </label>
 <input id="settings_title" type="text" value="Informations collaboratives pour ma ville" onchange="update(1);">
 </div>
-<p lang="en">WRITEME</p>
-<p lang="fr">WRITEME</p>
+<p lang="en">Fill-in a title for the poster, something like "Collaborative information for <i>my town</i>"</p>
+<p lang="fr">Indiquez un titre pour l'affiche, quelque chose comme «&nbsp;Informations collaboratives pour <i>ma ville</i>&nbsp;»</p>
 <br />
 </div>
 
@@ -45,14 +45,14 @@
 </label>
 <input id="settings_subtitle" type="text" value="Des compétences à proposer, de l'aide à demander ?" onchange="update(2);">
 </div>
-<p lang="en">WRITEME</p>
-<p lang="fr">WRITEME</p>
+<p lang="en">Add some text, what about "Need help? Want to help?"</p>
+<p lang="fr">Ajouter quelques informations, quelque chose comme «&nbsp;Des compétences à proposer, de l'aide à demander&nbsp;?&nbsp;»</p>
 <br />
 </div>
 
 <div id="step-3">
-<h2 lang="en">3: Create a pad</h2>
-<h2 lang="fr">3&nbsp;: Créez un pad</h2>
+<h2 lang="en">3: Create a pad or mention the address of a Website</h2>
+<h2 lang="fr">3&nbsp;: Créez un pad ou indiquez l'adresse d'un site Web</h2>
 <center>
 <input type="button" id="btn_do_gen" value="Créer" title="Create a pad" onclick="javascript:genPad();update(3);return false;" />
 </center>
@@ -64,8 +64,18 @@
 </label>
 <input id="settings_url" type="text" value="" onchange="update(3);">
 </div>
-<p lang="en">WRITEME</p>
-<p lang="fr">WRITEME</p>
+<p lang="en">You can either generate an etherpad (a collaborative document) with the <i>Create</i> button, or use an existing website by providing the URL in the textfield.</p>
+<p lang="fr">Vous pouvez générer un etherpad (un document éditable à plusieurs) par le bouton <i>Créer</i>, ou indiquer l'adresse d'un document existant sur le Web.</p>
+<p>
+<span lang="en">This pad will be provided by: </span>
+<span lang="fr">Ce pad vous sera proposé par&nbsp;: </span>
+<a id="instance_name" target="_blank" href="https://framapad.org/fr/info/"><span lang="en">One of the instances selected by the <b class="violet">Frama</b><b class="orange">soft</b> French non-profit</span><span lang="fr">l'une des instances sélectionnées par l'association <b class="violet">Frama</b><b class="orange">soft</b></span></a>.
+</p>
+<p>
+<span lang="en">You can start using the pad already from the frame below, or open it in another tab by clicking </span>
+<span lang="fr">Vous pourrez commencer à utiliser ce pad dans le cadre ci-dessous ou l'ouvrir dans un autre onglet en cliquant sur </span>
+<a id="open_pad" target="_blank" href="#"><span lang="en">this link</span><span lang="fr">ce lien</span></a>.
+</p>
 <br />
 <div id="pad">
 <iframe id="pad_iframe" src="" onload="updatePad(this.contentWindow.location)" tabindex="-1"></iframe>

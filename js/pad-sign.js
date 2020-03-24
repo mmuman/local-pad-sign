@@ -10,6 +10,7 @@ function update(step) {
     document.getElementById("sign_subtitle").textContent = st;
     // TODO: shorten text URL? frama.link (LSTU) sends the full page HTML as reply of the POST :-(
     document.getElementById("sign_url").textContent = u.replace(/^http.:\/\//,"");
+    document.getElementById("open_pad").href = u;
 
     if (u.length && u != padUrl) {
         var qrcode = new QRCode({
@@ -44,9 +45,14 @@ function genPad() {
         .replace(/(.|$)/g, c => c[!Math.round(Math.random()) ? 'toString' : 'toLowerCase']());
 
     /* pick a random instance */
-    var instance = instances[Object.keys(instances)[Math.floor(Math.random() * Object.keys(instances).length)]];
-    // TODO: filter out non-chatons
+    var instance = {};
+    while (!instance.chatons) {
+        // filter out non-chatons instances for now
+        instance = instances[Object.keys(instances)[Math.floor(Math.random() * Object.keys(instances).length)]];
+    }
     console.log("Using etherpad instance " + instance.title);
+    document.getElementById("instance_name").href = instance.website;
+    document.getElementById("instance_name").textContent = instance.title;
 
     var url = instance.endpoint + name;
     console.log(url);

@@ -5,12 +5,23 @@
     border: 10px solid #a0a0ff;
 }
 .todo {
+    padding: 5px;
     background: #e0d0c0;
     border: 2px solid orange;
+    border-radius: 10px;
 }
 .done {
     background: #b0e0b0;
     border: none;
+}
+.frama, .violet {
+    color: #6a5687;
+}
+.orange, .soft {
+    color: #eb7239;
+}
+.vert {
+    color: #8e9c48;
 }
 input[type="text"] {
     width: 80%;
