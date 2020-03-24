@@ -31,8 +31,11 @@ function update(step) {
         padUrl = u;
     }
 
-    // XXX: this resets the zoom in Chromium
-    //history.pushState(null,null,'#' + fragments.join("&"));
+    // force scrolling back, in case setting the hash changes it
+    // cf. https://stackoverflow.com/questions/645202/can-i-update-window-location-hash-without-having-the-web-page-scroll
+    var scrollmem = [document.body.scrollLeft, document.body.scrollTop];
+    history.pushState(null,null,'#' + fragments.join("&"));
+    document.body.scrollTo(scrollmem[0], scrollmem[1]);
 
     if (step) {
         document.getElementById("step-"+step).className = "done";
@@ -140,6 +143,20 @@ function localizeUI() {
 
 document.addEventListener('DOMContentLoaded', (event) => {
     localizeUI();
+
+    if (document.location.hash.length) {
+        var hash = document.location.hash.slice(1);
+        hash = hash.split("&");
+        hash = hash.map(h => h.split("="))
+        fragments = {};
+        console.log(hash);
+        hash.forEach(h => fragments[h[0]] = decodeURIComponent(h[1]));
+        document.getElementById("settings_title").value = fragments['title'] || "";
+        document.getElementById("settings_subtitle").value = fragments['subtitle'] || "";
+        document.getElementById("settings_url").value = fragments['pad'] || "";
+        update();
+    }
+
     document.getElementById("settings_title").select();
     document.getElementById("settings_title").focus();
     document.getElementById("step-1").className = "todo";
