@@ -48,6 +48,9 @@ input[type="text"] {
     text-align: center;
     //font-size: +500%;
 }
+#sign_url {
+    font-family: monospace;
+}
 page {
   background: white;
   display: block;
