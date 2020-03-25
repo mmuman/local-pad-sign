@@ -11,10 +11,13 @@ function update(step) {
     // TODO: shorten text URL? frama.link (LSTU) sends the full page HTML as reply of the POST :-(
     document.getElementById("sign_url").textContent = u.replace(/^http.:\/\//,"");
     document.getElementById("open_pad").href = u;
-    var fragments = [
-        "title=" + encodeURIComponent(t),
-        "subtitle=" + encodeURIComponent(st)
-    ];
+
+    var fragments = [];
+    if (t.length)
+        fragments.push("title=" + encodeURIComponent(t));
+    if (st.length)
+        fragments.push("subtitle=" + encodeURIComponent(st));
+
     var hash;
 
     if (u.length && u != padUrl) {
@@ -29,7 +32,8 @@ function update(step) {
         document.getElementById("pad_iframe").src = u;
         padUrl = u;
     }
-    fragments.push("pad=" + encodeURIComponent(u));
+    if (u.length)
+        fragments.push("pad=" + encodeURIComponent(u));
 
     // force scrolling back, in case setting the hash changes it
     // cf. https://stackoverflow.com/questions/645202/can-i-update-window-location-hash-without-having-the-web-page-scroll
