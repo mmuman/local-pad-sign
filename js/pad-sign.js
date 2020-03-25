@@ -27,9 +27,9 @@ function update(step) {
 
         document.getElementById("qr").innerHTML = svg;
         document.getElementById("pad_iframe").src = u;
-        fragments.push("pad=" + encodeURIComponent(u));
         padUrl = u;
     }
+    fragments.push("pad=" + encodeURIComponent(u));
 
     // force scrolling back, in case setting the hash changes it
     // cf. https://stackoverflow.com/questions/645202/can-i-update-window-location-hash-without-having-the-web-page-scroll
