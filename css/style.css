@@ -4,14 +4,17 @@
 .todo {
     margin: 1em;
     padding: 5px;
-    background: #e0d0c0;
+    background-color: #e0d0c0;
     border: 2px solid orange;
     border-radius: 10px;
+    transition: background-color 2s;
 }
 .done {
     margin: 1em;
-    background: #b0e0b0;
-    border: none;
+    background-color: #c0ffc0;
+    border: 2px solid #c0ffc0;
+    border-radius: 10px;
+    transition: background-color 2s;
 }
 .frama, .violet {
     color: #6a5687;
